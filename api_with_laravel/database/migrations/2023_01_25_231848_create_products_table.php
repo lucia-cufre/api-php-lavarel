@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('category');
             $table->enum('status', ['ACTIVE', 'INACTIVE']);
             $table->integer('quantity');
-            $table->date('created_at');
-            $table->date('update_at')->nullable();
-            $table->date('deleted_at')->nullable();
+            $table->timestamp('created_at');
+            $table->timestamp('update_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
